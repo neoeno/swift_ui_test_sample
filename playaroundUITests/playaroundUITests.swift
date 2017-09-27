@@ -28,9 +28,17 @@ class playaroundUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testInitialLabelValue() {
+        let initialLabel = XCUIApplication().staticTexts["Hi mate!"]
+        XCTAssert(initialLabel.exists)
+    }
+    
+    
+    func testTappedLabelValue() {
+        XCUIApplication().buttons["Button"].tap()
+        
+        let newLabel = XCUIApplication().staticTexts["Stop tapping me!"]
+        XCTAssert(newLabel.exists)
     }
     
 }
